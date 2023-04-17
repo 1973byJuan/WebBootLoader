@@ -1,10 +1,14 @@
 /* 
-* Este firmware para ESP8266 y ESP32 permite la carga del firmware
+* Este firmware para ESP8266, ESP32-C3 y ESP32 permite la carga del firmware
 * y de los archivos en el sistema de ficheros SPIFFS a traves de
 * un cliente WEB mediante protocolo HTTP.
 * El uControlador publica una red WiFi donde el cliente WEB debe
 * conectarse. El SSID de la red WiFi es "WebBootLoader" y la IP de
 * uControlador es la 192.168.4.1
+* 
+* Para compilar para el ESP32-C3 es necesario modificar la libreria
+* AsyncWebServer.cpp cambiando "return IPAddress(0U);" por
+* "return IPAddress((uint32_t)0U);"
 */
 
 #include <ESPAsyncWebServer.h> //Libreria para web server asincrono
@@ -22,7 +26,7 @@
   #define U_PART U_FS           //Constante para la actualizacion SW via Web
 #endif
 
-#ifdef ESP32-C3
+#ifdef ESP32C3
   #include <FS.h>               //Libreria funciones SPIFFS
   #include <WiFi.h>             //Añado la libreria de gestion del protocolo WiFi
   #include <Update.h>          //Libreria para actualizacion SW via Web
