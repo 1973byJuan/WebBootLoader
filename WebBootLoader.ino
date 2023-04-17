@@ -22,7 +22,15 @@
   #define U_PART U_FS           //Constante para la actualizacion SW via Web
 #endif
 
-String fileType;                //Variable para almacenar el tipo de fichero recibido, esta variable debe ser global
+#ifdef ESP32-C3
+  #include <FS.h>               //Libreria funciones SPIFFS
+  #include <WiFi.h>             //Añado la libreria de gestion del protocolo WiFi
+  #include <Update.h>          //Libreria para actualizacion SW via Web
+  #define U_PART U_FS           //Constante para la actualizacion SW via Web
+#endif
+
+String fileType;                //Variable para almacenar el tipo de fichero recibido, esta variable debe ser global ya que cada vez que
+                                //un chuck del fichero se vuelve a llamar a la funcion filehandle
 File progFile;                  //Variable para almacenar el fichero recibido, esta variable debe ser global
 
 const char* ssid = "WebBootLoader";
