@@ -26,7 +26,7 @@
   #define U_PART U_FS           //Constante para la actualizacion SW via Web
 #endif
 
-#ifdef ESP32C3
+#ifdef ESP32-C3
   #include <FS.h>               //Libreria funciones SPIFFS
   #include <WiFi.h>             //Añado la libreria de gestion del protocolo WiFi
   #include <Update.h>          //Libreria para actualizacion SW via Web
