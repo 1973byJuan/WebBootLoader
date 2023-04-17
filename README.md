@@ -1,6 +1,6 @@
 # WebBootLoader
 
-Este firmware para ESP8266 y ESP32 permite la carga del firmware
+Este firmware para ESP8266, ESP32-C3 y ESP32 permite la carga del firmware
 y de los archivos en el sistema de ficheros SPIFFS a traves de
 un cliente WEB mediante protocolo HTTP.
 El uControlador publica una red WiFi donde el cliente WEB debe
